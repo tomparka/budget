@@ -2,23 +2,31 @@ import React from "react";
 import './TransactionModal.scss';
 
 export default class TransactionModal extends React.Component {
-
-    // Get the <span> element that closes the modal
-    // closeModal() {
-    //     // When the user clicks on <span> (x), close the modal
-    //     var modal = document.getElementById("myModal");
-    //     modal.style.display = "none";
-    // }
-
     render() {
-        if (!this.props.display) {
-            return null;
-        }
         return (
             <div id="myModal" className="modal">
                 <div className="modal-content">
-                    <span className="close">&times;</span>
-                    <p>Some text in the Modal..</p>
+                    <span className="close" onClick={this.props.close}>&times;</span>
+
+                    <form>
+                        <label>
+                            Method:
+                            <input type="text" />
+                        </label>
+                        <br />
+                        <label>
+                            Amount:
+                            <input type="text" />
+                        </label> 
+                        <br />
+                        <label>
+                            Description:
+                            <input type="text" />
+                        </label>
+                        <br />
+                        <input type="submit" value="Submit" />
+                    </form>
+
                 </div>
             </div>
         );
